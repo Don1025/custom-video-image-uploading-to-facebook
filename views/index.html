@@ -1,0 +1,229 @@
+    <!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+	
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Selection Page | Instantly.sg</title>
+
+        <!-- metas -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta property="og:title" content="">
+        <meta property="og:site_name" content="">
+        <meta property="og:url" content="">
+        <meta property="og:image" content="">
+        <meta property="og:description" content="">
+
+        <!-- css -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/animate.min.css">
+
+        <link rel="stylesheet" href="/css/app.css">
+
+        <!-- script -->
+        <script src="/js/socket.io.min.js"></script>
+        <script src="/js/jquery-1.12.3.min.js"></script>
+        <script src="/js/handlebarsjs.1.0.min.js"></script>
+    </head>
+    <body>
+        <div id="sorryModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dism
+                </div>
+iss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">Sorry</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Sorry. You can't get your photo printed.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary yes-btn next-image-style" data-dismiss="modal">Exit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sorry Modal -->
+
+        <!--
+        <div id="header-bar">
+            <div class="container-fluid">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>From: </label>
+                        <select id="select-from" class="form-control">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>To: </label>
+                        <select id="select-to" class="form-control">
+                            <option value="0"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group text-left btn-form-group">
+                        <button name="filter" class="btn btn-primary btn-filter">Filter</button>
+                        <button name="reset" class="btn btn-default btn-reset">Reset</button>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group text-right btn-form-group">
+                        <button name="toggle-select" class="btn btn-warning btn-start-select">Multiple Emailing</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <div id="imgContent" class="clearfix"></div>
+        <div id="videoContent" class="clearfix"></div>
+
+        <div id="footer-bar">
+            <button type="button" class="btn btn-primary select-done-btn" id="select-done-btn">Please select the photos that you wish to email to. Click here when done.</button>
+        </div>
+
+        <!--********************************
+        TEMPLATES
+        *********************************-->
+         <script id="firstShow-tpl" type="text/x-handlebars-template">
+            {{#each firstShow}}
+            <a href="{{url}}" target="_blank" data-ctime="{{ctime}}">
+            <img src="{{url}}" /><span class="numberprinted">{{np}}</span>
+            </a>
+            {{/each}}
+        </script>
+
+        <script id="addImage-tpl" type="text/x-handlebars-template">
+            <a href="{{url}}" target="_blank" data-ctime="{{ctime}}">
+            <img src="{{url}}" /><span class="numberprinted" data-np={{np}}>{{np}}</span>
+            </a>
+        </script>
+
+        <script id="addVideo-tpl" type="text/x-handlebars-template">
+            <a href="{{url}}" target="_blank" data-ctime="{{ctime}}">
+                <video width="320" height="240" controls>
+                  <source src="{{url}}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+            </a>
+        </script>
+
+<!-- <div>{{localtime}}</div> add this div after above img for time -->
+        <script id="mostRecent-tpl" type="text/x-handlebars-template">
+            <a href="{{url}}" target="_blank">
+            </a>
+        </script>
+
+        <script id="dialog-tpl" type="text/x-handlebars-template">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: block;z-index: 1050;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header" style="display:none;">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="font-size:3em!important; margin:10px 20px 0 0!important;">&times;</button>
+                        </div>
+                        <div class="modal-body" id="dialog-content">
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner">
+                                    <div class="item active">
+                                        <div class="modal-btn-grp">
+                                            <h4 id="dowhat">What do you wish to do?</h4>
+                                            <div style="text-align:center; height:100%; width:100%;">
+                                                <img src="" id="commentImg" class="img-responsive center-block" style="" />
+                                                <button type="button" class="btn btn-primary print-btn" id="printbutton">PRINT</button>
+                                                <button type="button" class="btn btn-primary email-btn" id="emailbutton">EMAIL</button>
+                                                <!--<button type="button" class="btn btn-primary mms-btn" id="mmsbutton" disabled>MMS</button>-->
+                                            </div>
+                                            <button type="button" class="btn btn-default no-btn" data-dismiss="modal" id="cancelbutton">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <h4 id="howmanycopies">Select how many copies of this photo to print</h4>
+                                        <!--<p style="margin-bottom:20px;">PS: Good things come in pairs. We print in doubles.</p>-->
+                                        <select class="print-amount">
+                                            <option selected>1</option>
+                                            <option>2</option>
+                                            <option>3</option>
+                                            <option>4</option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                            <option>10</option>
+                                        </select>
+                                        <div class="modal-btn-grp-2" style="padding:0;">
+                                            <div class="col-btn" style="display:none;">
+                                                <div>
+                                                    <label class="checkbox-inline" style="float:left;">
+                                                        <input type="checkbox" class="image-type modalselect" value="Email"> 4R [15.2cm by 10.2cm]
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-btn" style="display:none;">
+                                                <div>
+                                                    <label class="checkbox-inline" style="float:left;">
+                                                        <input type="checkbox" class="image-type modalselect" value="half4r" checked> Half 4R [10.2cm by 7.6cm]
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-btn" style="display:none;">
+                                                <div>
+                                                    <label class="checkbox-inline" style="float:left;">
+                                                        <input type="checkbox" class="image-type modalselect" value="wallet" > Wallet [7.6cm by 5.1cm]
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <span class="err-msg hide">Please choose at least one option</span>
+                                        <div class="modal-btn-grp">
+                                            <button type="button" id="donebutton" class="btn btn-primary yes-btn next-image-style">Done</button>
+                                            <button type="button" class="btn btn-default no-btn" data-dismiss="modal" id="cancelbutton2">Cancel</button>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <h4 id="enteremailadd">Enter your email address</h4>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="emailInput">Email address</label>
+                                            <input type="email" class="form-control" id="emailInput" placeholder="Enter your email address">
+                                        </div>
+                                        <button class="btn btn-default submit-email disabled" id="emailsubmit">Submit</button>
+                                        <p class="err-msg hide">Please enter a valid email address</p>
+                                        <div class="modal-btn-grp-3">
+                                            <button type="button" class="btn btn-default no-btn" id="cancelbutton3" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                     <h4 id="entermmsno">Enter your mobile number</h4>
+                                     <div class="form-group">
+                                            <label class="sr-only" for="phoneInput">Phone number</label>
+                                            <input type="input" class="form-control" id="phoneInput" placeholder="Enter only numbers and do not add in +65">
+                                      </div>
+                                      <button class="btn btn-default submit-mms disabled" id="mmssubmit">Submit</button>
+                                        <p class="err-msg hide">Please enter a valid mobile number</p>
+                                        <div class="modal-btn-grp-3">
+                                            <button type="button" class="btn btn-default no-btn" id="cancelbutton3" data-dismiss="modal">Cancel</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+        <script src="/js/all.js"></script>
+        <script src="js/bootstrap.js"></script>
+    </body>
+</html>

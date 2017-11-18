@@ -1,0 +1,1057 @@
+/* ==========================================================================
+   Normalize css:
+   ========================================================================== */
+/*! normalize.css v2.1.2 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,video{display:inline-block}audio:not([controls]){display:none;height:0}[hidden]{display:none}html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}a:focus{outline:thin dotted}a:active,a:hover{outline:0}h1{font-size:2em;margin:.67em 0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}mark{background:#ff0;color:#000}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em}pre{white-space:pre-wrap}q{quotes:"\201C" "\201D" "\2018" "\2019"}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:0}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}button,input{line-height:normal}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}textarea{overflow:auto;vertical-align:top}table{border-collapse:collapse;border-spacing:0}
+
+/* ==========================================================================
+   Helpers: UI - Layout class helpers
+   ========================================================================== */
+.Hfl{float:left}.Hfr{float:right}.Hfn{float:none}.Hcaps{text-transform:uppercase}.Hir{display:block;text-indent:-99999px}.Htxtl{text-align:left}.Htxtr{text-align:right}.Htxtj{text-align:justify}.Htxtc{text-align:center}.Hdn{display:none}.Hdb{display:block}.Hdi{display:inline}.Hdib{display:inline-block}.Hv{visibility:visible}.Hvh{visibility:hidden}.Hcb{clear:both}.Hcf:after{content:"";display:table;clear:both}.Hnmg{margin:0}.Hnpd{padding:0}.Hnmp{margin:0;padding:0}.Hmgc{margin:0 auto}.Hbdn{border:0}.Hfwb{font-weight:bold}.Hfwn{font-weight:normal}.Hcp{cursor:pointer}.Hcd{cursor:default}
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* font-family: 'Open Sans', sans-serif; */
+
+body {
+  background: #e3e3e3;
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul, 
+ol, 
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: #fcbc34;
+  text-decoration: none;
+}
+
+#imgContent {
+  width: 100%;
+  padding: 0em;
+}
+
+#imgContent .animated {
+  position: relative;
+  z-index: 10;
+}
+
+#imgContent a, #imgContent img { display: block;}
+
+/* the below is for square framing of photos. ideally for 4kstogram IG backup plan. uncomment to use. remember to comment line 91 to line 101*/
+/*
+#imgContent a {
+  float: left;
+  width: 24%; 
+  margin: 0.5%;
+  display: block;
+  height: 405px;
+}
+
+#imgContent img {
+  width: 100%;
+  border:1px solid black;
+  display: block;
+  max-height:405px;
+  width: auto;
+  margin: 0 auto;
+}
+*/
+
+#imgContent a {
+  float: left;
+  width: 24.5%;
+  margin: 0.25%;
+  height: 392px;
+}
+
+#imgContent img {
+  max-height:382px;
+  max-height:382px;
+  margin: auto;
+}
+
+#imgContent video {
+  width: 382px;
+  height:auto;
+}
+
+.modal-btn-grp video {
+  margin-bottom:2em;
+}
+
+.photoslide
+{
+width: 24%;
+height: auto;
+float: left;
+border-radius: 5px;
+background: #fff;
+padding: 0.5%;
+margin: 0.5%;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.photousername
+{
+font-size:1.5vw; 
+}
+
+input.search {
+  width:50%; 
+  height:9vh; 
+  margin-top:1em; 
+  margin-bottom:0.5em; 
+  border:2px solid black; 
+  font-size:400%; 
+  text-align:Center;
+}
+
+div.powered {
+  font-size:250%; 
+  width:50%; 
+  margin:0 auto 1em auto; 
+  text-align:right;
+}
+
+#emailInput, #nameInput, #addressInput,#phoneInput {
+  width: 100%;
+  font-size:180%;
+  height:100%;
+}
+
+#dowhat {
+  text-align:center;
+  font-size: 55px;
+  font-weight: 700;
+}
+
+#sharebutton {
+  padding: 10px 15px;
+  margin-right:10px;
+}
+
+#printbutton {
+  padding: 10px 15px;
+  margin-right:10px;
+}
+
+#emailbutton {
+  padding: 10px 15px;
+  margin-right:10px;
+}
+
+#mmsbutton{
+  font-size:2em;
+  margin-left: 1em;
+}
+
+
+#howmanycopies {
+  font-size:2.2em;
+  text-align:left;
+  margin-bottom:40px;
+}
+
+#cancelbutton {
+  width:4em;
+  font-size:1.5em;
+  margin-top:1em;
+}
+
+#donebutton {
+  font-size:2em;
+  margin-right:0.5em;
+  width:5em;
+}
+
+#cancelbutton2 {
+  width:5em;
+  font-size:2em;
+}
+
+#enteremailadd {
+  font-size:2.2em;
+  text-align:left;
+  margin-bottom:20px;
+}
+
+#enterFbLogin {
+  font-size:2.2em;
+  text-align:left;
+  margin-bottom:20px;
+}
+
+#commentImg {
+  max-height: 375px;
+  width: auto;
+  margin-bottom:2em;
+}
+
+#additionalemails {
+  font-size:1.5em;
+}
+
+#emailsubmit {
+  font-size:1.8em;
+  width:5em;
+  margin-bottom:8px;
+}
+
+#mmssubmit{
+  font-size:1.8em;
+  width:5em;
+  margin-bottom:8px;
+}
+
+#cancelbutton3 {
+  font-size:1.5em;
+  margin-top:1em;
+}
+
+.form-control{
+   background-color: #FFFFFF;
+    background-image: none;
+    border: 1px solid #CCCCCC;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555555;
+    display: block;
+    font-size: 14px;
+    height: 34px;
+    line-height: 1.42857;
+    padding: 6px 12px;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+  }
+  .form-control:focus {
+    border-color: #66AFE9;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+    outline: 0 none;
+}
+.item{padding: 5px;}
+.has-error .form-control {
+    border-color: #A94442;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+}
+.has-error .form-control:focus {
+    border-color: #843534;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 6px #CE8483;
+}
+.modal-btn-grp{
+  margin-top: 15px;
+  padding: 19px 0 10px 20px;
+  text-align: right;
+}
+.modal-btn-grp-2{
+  margin-top: 15px;
+  padding: 19px 0 10px 20px;
+  text-align: center;
+  overflow: hidden;
+}
+.modal-btn-grp-2 .col-btn{
+  float: left;
+  width: 100%;
+  display:block;
+  margin-bottom:1em;
+}
+.col-btn img{
+  margin-top: 10px;
+}
+.form-inline{overflow: hidden; border:1px solid #E5E5E5;padding: 2%; border-radius: 4px; margin: 20px 0 0;}
+.form-inline > { float: left;}
+.form-inline .form-group{width: 100%;}
+.modal-btn-grp-3 span{float: left; margin-top: 2px;}
+.modal-btn-grp-3 button{float: right;}
+.modal-btn-grp-3{
+  margin-top: 15px;
+  padding: 19px 0 10px;
+  text-align: center;
+}
+.err-msg{color: red;float: left;clear:both; display:block; width:100%; margin-top:1%;}
+.hide{display:none;}
+
+#accordion, #addressInput {
+  margin-top: 1em;
+}
+#contextMenu {
+  position: absolute;
+  display:none;
+}
+
+.modalselect
+{
+font-size:200px;
+position:relative;
+}
+
+.btn, .btn:focus
+{
+background-color:#f26522!important;
+border-color:#f26522!important;
+color:#FFF!important;
+box-shadow: none!important;
+-webkit-box-shadow: none!important;
+-moz-box-shadow: none!important;
+-moz-transition: none!important;
+-webkit-transition: none!important; 
+}
+
+.btn:hover
+{
+background-color:#903f16!important;
+border-color:#903f16!important;
+color:#FFF!important;
+box-shadow: none!important;
+-webkit-box-shadow: none!important;
+-moz-box-shadow: none!important;
+-moz-transition: none!important;
+-webkit-transition: none!important;   
+}
+
+.close {
+    color: #000000;
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    opacity: 0.2;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+button.close {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+    border: 0 none;
+    cursor: pointer;
+    padding: 0;
+}
+.modal-title{font-size:4em; line-height: 1.42857;}
+
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.modal-dialog {
+  position: relative;
+  width: 1300px;
+  margin: 30px auto 0 auto;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: none;
+}
+.fade.in {
+    opacity: 1;
+}
+.fade {
+    opacity: 0;
+    transition: opacity 0.15s linear 0s;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.modal-backdrop.in {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.modal-header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 16.42857143px;
+}
+.modal-header .close {
+  margin-top: -2px;
+}
+.modal-title {
+  margin: 0;
+  line-height: 1.42857143;
+}
+.modal-body {
+  min-height: 90px;
+  font-size: 3em;
+}
+
+.modal-footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.modal-footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.modal-footer .btn-block + .btn-block {
+  margin-left: 0;
+}
+
+select.print-amount {
+  -webkit-appearance:menulist-button;
+  font-size:1.8em;
+}
+
+.btn-form-group {
+    margin-top: 19px;
+ }
+
+ #header-bar {
+  background:#FFF;
+  padding-top:1em;
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index: 9;
+ }
+
+ #header-bar .btn-start-select.toggle {
+  background-color: #428bca!important;
+  border-color: #357ebd!important;
+ }
+
+ #footer-bar {
+  position: fixed;
+  bottom: -100%;
+  /*height: 30px;*/
+  width: 100%;
+
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+ }
+
+ #footer-bar.toggle {
+  bottom: 0%;
+ }
+ #footer-bar .select-done-btn {
+  width: 100%;
+  /*padding: 3px 5px;*/
+  font-size:20px;
+  font-weight:700;
+ }
+
+#imgContent a[data-ctime] {
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+
+  border: 0px solid #f26522;
+  background:#FFF;
+  padding:5px;
+
+  position: relative;
+}
+ #imgContent a[data-ctime].selected {
+  /*border: 4px solid #f26522;
+  padding: 3px;*/
+  background:#f26522;
+ }
+
+ #imgContent a[data-ctime].filtered {
+  display: none;
+ }
+
+/* ==========================================================================
+   MEDIA QUERIES for Dell
+   ========================================================================== */
+
+@media all and (min-width: 1599px) and (max-width:1600px) {
+
+  input.search {
+    font-size:320%;
+  }
+
+  #imgContent {
+    margin-top:0px;
+  }
+
+  #dowhat {
+    font-size:55px;
+    margin-bottom:40px;
+  }
+
+  .modal-btn-grp {
+    margin:0;
+    padding:0;
+  }
+
+  .modal-dialog {
+    margin:2% auto;
+  }
+
+  .modal-body {
+    padding:10px 20px;
+  }
+
+  #commentImg {
+    margin-bottom:20px;
+  }
+
+  #cancelbutton {
+    margin:30px 0px 10px 0px;
+    font-size:35px;
+  }
+
+  .modal-dialog {
+    width:1100px;
+  }
+
+  #sharebutton {
+    font-size: 35px;
+  }
+
+  #printbutton {
+    font-size:35px;
+  }
+
+  #emailbutton {
+    font-size:35px;
+  }
+
+  #mmsbutton {
+    font-size:50px;
+  }
+
+  #howmanycopies {
+    font-size:55px;
+  }
+
+  #donebutton {
+    font-size:50px;
+  }
+
+  #cancelbutton2 {
+    font-size:50px;
+  }
+
+  #enteremailadd, #entermmsno {
+    font-size: 35px;
+    font-weight:700;
+  }
+
+  #afterShareMsg, #enterFbLogin {
+    font-size: 30px;
+  }
+
+  #emailInput {
+    font-size:30px;
+  }
+
+  #additionalemails, #nameInput, #phoneInput {
+    font-size:30px;
+  }
+
+  #emailsubmit, #mmssubmit {
+    font-size:35px;
+    width:180px;
+  }
+
+  .modal-btn-grp-3 {
+    margin:0;
+    padding:0;
+  }
+
+  #cancelbutton3 {
+    margin-top: 10px;
+    margin-bottom:10px;
+    font-size: 35px;
+    width:180px;
+  }
+}
+
+/* ==========================================================================
+   MEDIA QUERIES for iPad portrait
+   ========================================================================== */
+@media all and (min-width: 767px) and (max-width:768px) {
+
+  #imgContent {
+    padding:26em 0em 5em 0em;
+
+  }
+
+  #imgContent a {
+  float: left;
+  width: 49%; /*change here to change grid view*/
+  margin: 0.5%;
+  }
+
+  input.search {
+    font-size:20px;
+    height:50px;
+    width:500px;
+    margin-top:25px;
+  }
+
+  div.powered {
+    font-size:180%;
+    width:65%;
+  }
+
+  div.modal-dialog {
+    width:600px;
+  }
+
+  div.modal-btn-grp {
+    margin:0px;
+    padding:0px;
+  }
+
+  #dowhat {
+    font-size:42px;
+    margin-bottom:20px;
+    margin-top:0px!important;
+    font-weight:700;
+  }
+
+  #commentImg {
+    margin-bottom:30px;
+    width:535px;
+  }
+
+  #printbutton {
+    font-size:40px;
+    margin:0 auto 20px auto;
+    width:4em;
+  }
+
+  #emailbutton {
+    font-size:40px;
+    margin:0 20px 20px 20px;
+    width:4em;
+  }
+
+  #mmsbutton {
+    font-size:40px;
+    margin:0 auto 20px auto;
+    width:4em;
+  }
+
+  #cancelbutton {
+    width: 4em;
+    font-size: 40px;
+    margin: 15px auto 0 auto;
+    display: block;
+    float:right;
+  }
+
+  #howmanycopies {
+    font-size:40px;
+    margin-bottom: 30px;
+    margin-top: 0px!important;
+    padding-top:0px!important;
+  }
+
+  select.print-amount {
+    font-size:40px;
+  }
+
+  #donebutton {
+    font-size: 50px;
+    float: left;
+    margin: 0;
+    width: 250px;
+  }
+
+  #cancelbutton2 {
+    font-size: 50px;
+    float: right;
+    width: 250px;
+    margin: 0;
+  }
+
+  #enteremailadd {
+    font-size:40px;
+    font-weight:700;
+  }
+
+  #emailInput {
+    font-size:100%;
+  }
+
+  #emailsubmit {
+    font-size:40px;
+    width:5em;
+  }
+
+  div.modal-btn-grp-3 {
+    margin:0;
+    padding:0;
+  }
+  
+  #entermmsno {
+    font-size:40px;
+    font-weight:700;
+  }
+
+  #enterFbLogin {
+    font-size:40px;
+    font-weight:700;
+  }
+
+  #phoneInput {
+    font-size:85%;
+  }
+
+  #mmssubmit {
+    font-size:40px;
+    width:5em;
+  }
+
+  #cancelbutton3 {
+    margin-top:10px;
+    font-size:40px;
+  }
+
+}
+
+/* ==========================================================================
+   MEDIA QUERIES for iPad landscape
+   ========================================================================== */
+
+@media all and (min-width: 1023px) and (max-width:1024px) {
+
+  .modal-dialog {
+    width:850px;
+  }
+
+  .modal-body {
+    padding:15px;
+  }
+
+  #dowhat, #howmanycopies {
+    font-size: 1.5em;
+  }
+
+  #dowhat {
+    margin-bottom:15px;
+    margin-top:0px;
+  }
+
+  .modal-btn-grp, .modal-btn-grp-3 {
+    margin:0;
+    padding:0;
+  }
+
+  #commentImg {
+    margin-bottom:15px;
+  }
+
+  #printbutton, #emailbutton, #donebutton, #cancelbutton2, #enteremailadd, #emailInput, #emailsubmit, #enterFbLogin {
+    font-size:1.5em;
+  }
+
+  #cancelbutton, #cancelbutton3 {
+    font-size:1em;
+    margin-top:1em;
+  }
+
+}
+
+
+/*
+@viewport{
+    width: device-width;
+}
+
+@-ms-viewport{
+    width: device-width;
+}*/
+
+/***********
+* @modal boostrap css
+************/
+
+
+/*
+@media all and (min-width: 2047px) and (max-width:2048px) {
+  input.search {
+    font-size:100%;
+    width:70%;
+    height:9vh;
+  }
+
+  #imgContent {
+    margin-top:18em;
+  }
+}
+
+@media (min-width: 992px) {
+  .modal-lg {
+    width: 900px;
+  }
+ 
+}*/
+ 
+
+#imgContent a span.numberprinted {
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+
+  padding: 2px 5px;
+}
+#imgContent a:hover span.numberprinted {
+  color: white;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#imgContent a span.numberprinted[data-np="0"] {
+  display: none;
+}
+
+form.form-data div.clearfix {
+  margin-bottom: 20px;
+}
+
+form.form-data div.clearfix > label {
+  float: left;
+}
+
+form.form-data div.clearfix > label span.required {
+  color: red;
+}
+
+form.form-data div.clearfix > label + div {
+  margin-left: 200px;
+}
+
+form.form-data div.clearfix > label + div input[type=text],
+form.form-data div.clearfix > label + div input[type=number],
+form.form-data div.clearfix > label + div input[type=email],
+form.form-data div.clearfix > label + div input[type=tel],
+form.form-data div.clearfix > label + div input[type=password],
+form.form-data div.clearfix > label + div input[type=color],
+form.form-data div.clearfix > label + div input[type=date],
+form.form-data div.clearfix > label + div input[type=datetime],
+form.form-data div.clearfix > label + div input[type=time],
+form.form-data div.clearfix > label + div input[type=url],
+form.form-data div.clearfix > label + div select,
+form.form-data div.clearfix > label + div textarea {
+  width: 600px;
+  max-width: 600px;
+  min-width: 600px;
+}
+
+
+form.form-data div.clearfix > label + div div.message{
+  color: red;
+  font-size: 0.6em;
+}
+
+#imgContent a[data-ctime]:nth-child(4n+1) {
+  /*clear: both; Ewan enable her for 25%*/ 
+}
+
+.ui-keyboard-keyset {
+  position:relative;
+  top: 200px;
+  left:125px;
+}
+
+
+.ui-keyboard-button {
+  width:70px!important;
+  height:70px!important;
+  margin:5px!important;
+}
+
+.ui-keyboard-button span {
+  font-size: 25px!important;
+}
+
+.ui-keyboard-button .ui-keyboard-text {
+  font-size: 25px!important;
+  position:static!important;
+}
+
+.ui-keyboard-button[data-name=".com"]{
+  width: 95px  !important;
+}
+.ui-keyboard-button[data-name="hotmail"]{
+  width: 170px  !important;
+}
+.ui-keyboard-button[data-name="gmail"]{
+  width: 170px  !important;
+}
+.ui-keyboard-button[data-name="yahoo"]{
+  width: 95px  !important;
+}
+.ui-keyboard-button[data-name=".sg"]{
+  width: 95px  !important;
+}
+.ui-keyboard-button[data-name=".com.sg"]{
+  width: 120px  !important;
+}
+.ui-keyboard-button[data-name="copy"]{
+  width: 120px  !important;
+}
+.ui-keyboard-button[data-name="paste"]{
+  width: 120px  !important;
+}
+
+.ui-keyboard-button[data-name="space"]{
+  width: 250px  !important;
+}
+
+.ui-keyboard-button[data-name="accept"]{
+  width: 100px  !important;
+}
+
+.ui-keyboard-button[data-name="cancel"]{
+  width: 100px  !important;
+}
+
+.fb-screen-btn{
+    width: 7em;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+.fb-post-btn{
+  width: 200px;
+    font-size: 35px;
+    margin-top: 1em;
+    margin-left: 1em;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.caption-box{
+    width: 100%;
+    font-size: 35px;
+    height: 100%;
+    padding: 0 20px;
+    border: 1px solid #e3e3e3;
+}
+
+.fb-next-btn{
+    font-size: 35px;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.fb-log-user-btn{
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+.fb-log-out-btn{
+    font-size: 35px;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-bottom: 0.5em;
+}
+
+#fb-user-name{
+  color: #f26522;
+  font-weight: 700;
+}
+
+.fb-login-btn{
+    width: 10em;
+    font-size: 1.5em;
+    margin-top: 1em;
+    margin-left: 1em;
+}
+.loader-cont{
+  width: 100%;
+  text-align: right;
+}
+.loader-cont img{
+  display: none;
+  margin-top: 20px;
+}
+.item-footer{
+  width: 100%;
+}
+.confirm-share{
+    float: left;
+    width: 75%;
+    margin-top: 34px;
+}
+input[name="share-confirm"]{
+  width: 25px;
+  height: 25px;
+}
+.term-text{
+  width: 100%;
+} 
+.notice{
+    display: block;
+    font-size: 15px;
+    color: red;
+    text-align: left;
+    text-indent: 114px;
+}

@@ -1,0 +1,87 @@
+<div class="item active">
+    <!-- form -->
+    <form class="form-data" method="post" id="form-data">
+        <div class="clearfix">
+            <label>First Name <span class="required">*</span></label>
+            <div><input type="text" name="name" class="field-keyboard-tool" data-required='true' /></div>
+        </div>
+
+        <div class="clearfix">
+            <label>Last Name</label>
+            <div><input type="text" name="desc" class="field-keyboard-tool" data-required='false' /></div>
+        </div>
+        <!--
+        <div class="clearfix">
+            <label>Gender <span class="required">*</span></label>
+            <div data-required='true'>
+                <input type="radio" name="sex" value="male" /> Male
+                <input type="radio" name="sex" value="female" /> Female
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <label>Company <span class="required">*</span></label>
+            <div data-required='true' data-at-least='2' data-at-most='4'>
+                <input type="checkbox" name="company" value="company - 1" /> Company - 1
+                <input type="checkbox" name="company" value="company - 2" /> Company - 2
+                <input type="checkbox" name="company" value="company - 3" /> Company - 3
+                <input type="checkbox" name="company" value="company - 4" /> Company - 4
+                <input type="checkbox" name="company" value="company - 4" /> Company - 5
+            </div>
+        </div>
+
+        <div class="clearfix">
+            <label>Desc</label>
+            <div><textarea name='desc' ></textarea></div>
+        </div>
+        -->
+        <div class="clearfix">
+            <label>Email <span class="required">*</span></label>
+            <div><input type="text" name="email" class="field-keyboard-tool" data-required='true' data-valid-email='true' /></div>
+        </div>
+
+        <div class="clearfix">
+            <label>Phone</label>
+            <div><input type="text" name="phone" class="field-keyboard-tool" data-required='false' /></div>
+        </div>
+        <!--
+        <div class="clearfix">
+            <label>State <span class="required">*</span></label>
+            <div><input type="text" name="maxmin" data-required='true' data-valid-min='2' data-valid-max='5' /></div>
+        </div>
+
+        <div class="clearfix">
+            <label>Zip Code<span class="required">*</span></label>
+            <div><input type="text" name="number" data-required='true' data-valid-number='true' /></div>
+        </div>
+
+        <div class="clearfix">
+            <label>Country <span class="required">*</span></label>
+            <div>
+                <select name="country" data-required='true'>
+                    <option value=''></option>
+                    <option value='US'>United State</option>
+                    <option value="Singapore">Singapore</option>
+                    <option value="Netherland">Netherland</option>
+                    <option value="Germany">Germany</option>
+                </select>
+            </div>
+        </div>
+        -->
+
+        <div class="clearfix">
+            <label>PDPA <span class="required">*</span></label>
+            <div data-required='true' data-at-least='1' data-at-most='1'>
+                <input type="checkbox" name="company" value="PDPA" checked/> By signing up, you agree to our Personal Data Protection Policy. No spam, we promise! <a href="http://www.wwf.sg/wwf_singapore/pdp_policy/#" target="_blank" style="color:#f26522;">http://www.wwf.sg/wwf_singapore/pdp_policy/#</a>
+            </div>
+        </div>
+
+
+        <div class="modal-btn-grp">
+            <button type="button" id="donebutton" class="btn btn-primary yes-btn">Submit</button>
+            <button type="button" class="btn btn-default no-btn" data-dismiss="modal" id="cancelbutton2">Cancel</button>
+            <button type="button" class="btn btn-default btn-next" id="cancelbutton2">&gt;</button>
+        </div>
+    </form>
+    <!-- end of form -->
+</div>
